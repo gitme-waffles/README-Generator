@@ -1,7 +1,6 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  console.log(license);
   switch (license) {
     case 'Apache 2.0':
       return '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
@@ -14,8 +13,8 @@ function renderLicenseBadge(license) {
     case 'WTFPL':
       return '[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)';
     case 'none' :
-      return ''
-    default: ''
+      return ' ';
+    default: ' ';
       break;
   }
 }
@@ -35,21 +34,35 @@ function renderLicenseLink(license) {
     case 'WTFPL':
       return '(http://www.wtfpl.net/about/)';
     case 'none' :
-      return ''
-    default: ''
+      return '';
+    default: '';
       break;
   }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  const renderEmpty = [' ', ''];
+  console.log(license);
+  const licenseArr = [
+    '- [License](#license)',
+    `- - -
+    ## License`
+  ];
+  if (license === 'none') {
+    return renderEmpty;
+  } else {
+    return licenseArr;
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+  const liSec = renderLicenseSection(data.license)
   const libadge = renderLicenseBadge(data.license);
   const liLink = renderLicenseLink(data.license)
-  console.log(libadge);
+  console.log(liSec);
   return `${libadge}
   # ${data.title}
     
@@ -60,7 +73,7 @@ function generateMarkdown(data) {
   - [Usage](#usage)
   - [Contributing](#contributing)
   - [Questions](#questions)
-  - [License](#license)
+  ${liSec[0]}
   
   ## Installation Instructions
   ${data.installation}
@@ -74,8 +87,7 @@ function generateMarkdown(data) {
   ## Questions
   If you want to contact me find me on [Github](https://github.com/${data.github}) or via [email](${data.email})
  
-  - - -
-  ## License
+  ${liSec[1]}
   ${liLink}
 
 `;
