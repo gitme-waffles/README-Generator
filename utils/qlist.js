@@ -19,6 +19,16 @@ const questions = [
     //   name: 'usage',
     //   message: 'Enter Usage details',
     // },
+    // {
+    //   type: 'editor',
+    //   name: 'test',
+    //   message: 'Enter Test Instructions',
+    // },
+    // {
+    //   type: 'editor',
+    //   name: 'contribution',
+    //   message: 'Enter Contribution Guidlines',
+    // },
     {
       type: 'input',
       name: 'github',
