@@ -12,10 +12,8 @@ function renderLicenseBadge(license) {
       return '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)';
     case 'WTFPL':
       return '[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)';
-    case 'none' :
+    default:
       return ' ';
-    default: ' ';
-      break;
   }
 }
 
@@ -33,37 +31,31 @@ function renderLicenseLink(license) {
       return '(http://unlicense.org/)';
     case 'WTFPL':
       return '(http://www.wtfpl.net/about/)';
-    case 'none' :
-      return '';
-    default: '';
-      break;
+    default:
+      return ' ';
   }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  const renderEmpty = [' ', ''];
-  console.log(license);
+  const renderEmpty = ['', ''];
   const licenseArr = [
     '- [License](#license)',
     `- - -
-    ## License`
+  ## License`
   ];
-  if (license === 'none') {
-    return renderEmpty;
-  } else {
-    return licenseArr;
-  }
+
+  return (license === 'none') ? renderEmpty : licenseArr;
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  const liSec = renderLicenseSection(data.license)
-  const libadge = renderLicenseBadge(data.license);
-  const liLink = renderLicenseLink(data.license)
-  console.log(liSec);
-  return `${libadge}
+  const licenseSection = renderLicenseSection(data.license);
+  const licensebadge = renderLicenseBadge(data.license);
+  const licenseLink = renderLicenseLink(data.license);
+  console.log(licenseSection);
+  return `${licensebadge}
   # ${data.title}
     
    ${data.description}
@@ -73,7 +65,7 @@ function generateMarkdown(data) {
   - [Usage](#usage)
   - [Contributing](#contributing)
   - [Questions](#questions)
-  ${liSec[0]}
+  ${licenseSection[0]}
   
   ## Installation Instructions
   ${data.installation}
@@ -87,8 +79,8 @@ function generateMarkdown(data) {
   ## Questions
   If you want to contact me find me on [Github](https://github.com/${data.github}) or via [email](${data.email})
  
-  ${liSec[1]}
-  ${liLink}
+  ${licenseSection[1]}
+  ${licenseLink}
 
 `;
 }

@@ -15,11 +15,11 @@ function writeToFile(fileName) {
         )
         .then((answers) => {
             const readmeContent = generateMarkdown.generateMarkdown(answers);
-            
+
             fs.writeFile(fileName, readmeContent, (err) => {
                 err ? console.log(err) : console.log('README file created!');
             })
-        })    
+        })
 }
 
 
