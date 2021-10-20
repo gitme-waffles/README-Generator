@@ -5,7 +5,7 @@ function renderLicenseBadge(license) {
   switch (license) {
     case 'Apache 2.0':
       return '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
-      case 'MIT':
+    case 'MIT':
       return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
     case 'MPL 2.0':
       return '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
@@ -22,7 +22,24 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  switch (license) {
+    case 'Apache 2.0':
+      return 'https://opensource.org/licenses/Apache-2.0';
+    case 'MIT':
+      return '(https://opensource.org/licenses/MIT)';
+    case 'MPL 2.0':
+      return '(https://opensource.org/licenses/MPL-2.0)';
+    case 'The Unlicense':
+      return '(http://unlicense.org/)';
+    case 'WTFPL':
+      return '(http://www.wtfpl.net/about/)';
+    case 'none' :
+      return ''
+    default: ''
+      break;
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -30,10 +47,12 @@ function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  const badge = renderLicenseBadge(data.license);
-  console.log(badge);
-  return `# ${data.title}
-  ${badge}  
+  const libadge = renderLicenseBadge(data.license);
+  const liLink = renderLicenseLink(data.license)
+  console.log(libadge);
+  return `${libadge}
+  # ${data.title}
+    
    ${data.description}
   
   ## Table of Contents
@@ -48,17 +67,16 @@ function generateMarkdown(data) {
   ## Usage 
   ${data.usage}  
   
-  ## Tests
+  ## Test Instructions
   
-  ## Contributing
+  ## Contribution Guidlines
   
   ## Questions
-  Github: [${data.github}](https://github.com/${data.github})
-  <br />
-  email: ${data.email}
+  If you want to contact me find me on [Github](https://github.com/${data.github}) or via [email](${data.email})
+ 
   - - -
   ## License
-  
+  ${liLink}
 
 `;
 }
