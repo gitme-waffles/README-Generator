@@ -22,15 +22,15 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   switch (license) {
     case "Apache 2.0":
-      return "https://opensource.org/licenses/Apache-2.0";
+        return "[Apache 2.0](https://opensource.org/licenses/Apache-2.0)";
     case "MIT":
-      return "(https://opensource.org/licenses/MIT)";
+      return "[MIT](https://opensource.org/licenses/MIT)";
     case "MPL 2.0":
-      return "(https://opensource.org/licenses/MPL-2.0)";
+      return "[MPL 2.0](https://opensource.org/licenses/MPL-2.0)";
     case "The Unlicense":
-      return "(http://unlicense.org/)";
+      return "[The Unlicense](http://unlicense.org/)";
     case "WTFPL":
-      return "(http://www.wtfpl.net/about/)";
+      return "[WTFPL](http://www.wtfpl.net/about/)";
     default:
       return " ";
   }
