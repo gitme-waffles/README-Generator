@@ -2,18 +2,18 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   switch (license) {
-    case 'Apache 2.0':
-      return '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
-    case 'MIT':
-      return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
-    case 'MPL 2.0':
-      return '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
-    case 'The Unlicense':
-      return '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)';
-    case 'WTFPL':
-      return '[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)';
+    case "Apache 2.0":
+      return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+    case "MIT":
+      return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+    case "MPL 2.0":
+      return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
+    case "The Unlicense":
+      return "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)";
+    case "WTFPL":
+      return "[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)";
     default:
-      return ' ';
+      return " ";
   }
 }
 
@@ -21,18 +21,18 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   switch (license) {
-    case 'Apache 2.0':
-      return 'https://opensource.org/licenses/Apache-2.0';
-    case 'MIT':
-      return '(https://opensource.org/licenses/MIT)';
-    case 'MPL 2.0':
-      return '(https://opensource.org/licenses/MPL-2.0)';
-    case 'The Unlicense':
-      return '(http://unlicense.org/)';
-    case 'WTFPL':
-      return '(http://www.wtfpl.net/about/)';
+    case "Apache 2.0":
+      return "https://opensource.org/licenses/Apache-2.0";
+    case "MIT":
+      return "(https://opensource.org/licenses/MIT)";
+    case "MPL 2.0":
+      return "(https://opensource.org/licenses/MPL-2.0)";
+    case "The Unlicense":
+      return "(http://unlicense.org/)";
+    case "WTFPL":
+      return "(http://www.wtfpl.net/about/)";
     default:
-      return ' ';
+      return " ";
   }
 }
 
@@ -40,15 +40,16 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   const renderEmpty = {
-    tableOfContents: '',
-    title: ''};
+    tableOfContents: "",
+    title: "",
+  };
   const licenseObj = {
-    tableOfContents:'- [License](#license)',
+    tableOfContents: "- [License](#license)",
     title: `- - -
-  ## License`
+  ## License`,
   };
 
-  return (license === 'none') ? renderEmpty : licenseObj;
+  return license === "none" ? renderEmpty : licenseObj;
 }
 
 // TODO: Create a function to generate markdown for README
@@ -56,7 +57,7 @@ function generateMarkdown(data) {
   const licenseSection = renderLicenseSection(data.license);
   const licensebadge = renderLicenseBadge(data.license);
   const licenseLink = renderLicenseLink(data.license);
-  
+
   return `${licensebadge}
   # ${data.title}
     
@@ -65,6 +66,7 @@ function generateMarkdown(data) {
   ## Table of Contents
   - [Installation Instructions](#installation-instructions)
   - [Usage](#usage)
+  - [Test Instructions](#test-instructions)
   - [Contributing](#contributing)
   - [Questions](#questions)
   ${licenseSection.tableOfContents}
@@ -77,9 +79,9 @@ function generateMarkdown(data) {
   ## Test Instructions
   
   ## Contribution Guidlines
-  
+  ${data.contribution}
   ## Questions
-  If you want to contact me find me on [Github](https://github.com/${data.github}) or via [email](${data.email})
+  Contact me on [Github](https://github.com/${data.github}) or via [email](${data.email}) if you have any questions 
  
   ${licenseSection.title}
   ${licenseLink}
