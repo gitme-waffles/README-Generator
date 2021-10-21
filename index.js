@@ -27,6 +27,3 @@ function writeToFile(fileName) {
 (function init() {
     writeToFile('README.md')
 })();
-
-// Function call to initialize app
-// init();
