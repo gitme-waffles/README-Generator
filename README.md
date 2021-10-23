@@ -35,12 +35,12 @@ Generated README is created in `Generated README` folder.
 <br />
 [Link to walkthrough](https://watch.screencastify.com/v/EDgCNHt0XQgxhQKSMH8o)
 <br />
-  ## Contribution Guidlines
-  Please notify me of any bux fixes or additional features before a pull request
-  ## Questions
-  Contact me on [Github](https://github.com/gitme-waffles) or via [email](dossanania@gmail.com) if you have any questions 
+## Contribution Guidlines
+Please notify me of any bux fixes or additional features before a pull request
+## Questions
+Contact me on [Github](https://github.com/gitme-waffles) or via [email](dossanania@gmail.com) if you have any questions 
  
-  - - -
-  ## License
-  [MIT](https://opensource.org/licenses/MIT)
+- - -
+## License
+[MIT](https://opensource.org/licenses/MIT)
 
