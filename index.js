@@ -1,4 +1,4 @@
-// Include packages needed for this application
+// packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
 
@@ -6,18 +6,18 @@ const fs = require("fs");
 const qlist = require("./utils/qlist");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// TODO: Create a function to write README file
+// function to write README file
 function writeToFile(fileName) {
   inquirer.prompt(qlist.questions).then((answers) => {
     const readmeContent = generateMarkdown.generateMarkdown(answers);
 
     fs.writeFile(fileName, readmeContent, (err) => {
-      err ? console.log(err) : console.log("README file created!");
+      err ? console.log(err) : console.log("README file created! \n Check Generated-README folder");
     });
   });
 }
 
-// TODO: Create a function to initialize app
+//initialize app
 
 (function init() {
   writeToFile("./Generated-README/README.md");
