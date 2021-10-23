@@ -26,7 +26,7 @@ npm install
 ```
 node index.js
 ```  
-This is what to expect when finished
+This is what to expect when finished <br />
 ![readme-gen-bash](https://user-images.githubusercontent.com/85494162/138543004-5bd9ecf6-3d1e-434d-97d6-e7859e61eb55.png)  
 
 Generated README is created in `Generated README` folder. 
