@@ -77,7 +77,7 @@ function generateMarkdown(data) {
   ${data.usage}  
   
   ## Test Instructions
-  
+  ${data.test}
   ## Contribution Guidlines
   ${data.contribution}
   ## Questions
