@@ -75,7 +75,6 @@ function generateMarkdown(data) {
   ${data.installation}
   ## Usage 
   ${data.usage}  
-  
   ## Test Instructions
   ${data.test}
   ## Contribution Guidlines
