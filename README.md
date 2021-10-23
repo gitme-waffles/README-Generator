@@ -32,8 +32,7 @@ This is what to expect when finished <br />
 Generated README is created in `Generated README` folder. 
 
 ⚠️ Any new generated README files will overwrite the existing file. Be sure to **SAVE** your readme elsewhere before generating another ⚠️
-  ## Test Instructions
-  
+
   ## Contribution Guidlines
   Please notify me of any bux fixes or additional features before a pull request
   ## Questions
